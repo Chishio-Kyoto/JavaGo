@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.houle.demo">
+    <select id="getUserCount" resultType="com.houle.demo.model.User">
+        select user_id,name,profile_img,email,gender,enable_status,user_type,create_time,last_edit_time from tb_person_info
+    </select>
+
+    <insert id="addUser" parameterType="com.houle.demo.model.User">
+        insert into tb_person_info(name,profile_img,email,gender,enable_status,user_type)
+        values(#{name},#{profileImg},#{email},#{gender},#{enableStatus},#{userType})
+    </insert>
+
+    <update id="updateUser" parameterType="com.houle.demo.model.User">
+        update tb_person_info set name=#{name},email=#{email}
+        where user_id=#{userId}
+    </update>
+
+    <delete id="deleteUser" parameterType="Integer">
+        delete from tb_person_info where user_id = #{userId}
+    </delete>
+</mapper>
