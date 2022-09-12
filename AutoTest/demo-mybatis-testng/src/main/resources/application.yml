@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+logging:
+  path: logs
+  file: mylog.log
+
+spring:
+  application:
+    name: report
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://47.101.xxx.xxx:3306/auto_test?useUnicode=true&characterEncoding=utf8
+    username: xxx
+    password: xxxxxx
+
+mybatis:
+  type-aliases-package: com.houle.demo.model
+  mapper-locations: mapper/*

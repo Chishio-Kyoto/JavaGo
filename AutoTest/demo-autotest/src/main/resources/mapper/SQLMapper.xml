@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 命名空间mapper,如果有多个mapper文件，这个必须唯一 -->
+<mapper namespace="com.tester.model">
+
+    <!--获取登陆接口case-->
+    <select id="loginCase" parameterType="Integer"  resultType="com.tester.model.LoginCase">
+        select * from loginCase
+        where id = #{id};
+    </select>
+
+    <!--添加用户接口case-->
+    <select id="addUserCase" parameterType="Integer" resultType="com.tester.model.AddUserCase">
+        select * from addUserCase where id=#{id};
+    </select>
+
+    <!--获取用户信息case-->
+    <select id="getUserInfoCase" parameterType="Integer" resultType="com.tester.model.GetUserInfoCase">
+        <!-- SQL语句 -->
+        select * from getUserInfoCase where id=#{id};
+    </select>
+
+    <!--添加用户接口-->
+    <select id="addUser" parameterType="com.tester.model.AddUserCase" resultType="com.tester.model.User">
+        select * from user where
+            userName=#{userName}
+                             and password=#{password}
+                             and sex=#{sex}
+                             and age=#{age}
+                             and permission=#{permission}
+                             and isDelete=#{isDelete};
+
+    </select>
+
+    <!--获取用户信息-->
+    <select id="getUserInfo" parameterType="com.tester.model.GetUserInfoCase" resultType="com.tester.model.User">
+        <!-- SQL语句 -->
+        select * from user where
+        id=#{userId};
+    </select>
+
+</mapper>
